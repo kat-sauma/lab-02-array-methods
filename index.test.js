@@ -1,6 +1,6 @@
 const {
     mapResult,
-    // ofAge,
+    filter,
 } = require('./index');
 
 
@@ -12,14 +12,20 @@ const {
     expect(mapResult(numbers, callback)).toEqual([2, 8, 12]);
     });
 
-    describe.skip('filters ages under 21', () => {
+    describe('filters ages under 21', () => {
         it('returns `true` or a truthy value for all ages over 21.',    () => {
+            const over21 = [24, 36, 45];
+            const under21 = [16, 24, 36, 45];
+            const cb = x => x >= 21;
 
-        expect(ofAge([24, 36, 45])).toBeTruthy();
-        
+        expect(filter(over21, cb)).toBeTruthy();
+        });
         it('returns `false` or a falsy value for all ages under 21.',   () => {
-            expect(ofAge([16, 24, 36, 45])).toBeFalsy();
+            const under21 = [16, 24, 36, 45];
+            const cb = x => x >= 21;
+
+            expect(filter(under21, cb)).toBeFalsy();
             });
         });
     });
-});
+

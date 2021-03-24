@@ -6,15 +6,20 @@ const mapResult = (numbers, callback) => {
       return numbersCopy;
 };
 
-// const ageFinder = (array) => array <== 21;
-// const ofAge = (array, callback) => {
-//     return callback.filter(array);
-// };
+// const ageFinder = (array) => array <= 21;
+const filter = (array, callback) => {
+    let arrayCopy = [...array];
+    for (let i = 0; i < array.length; i++) {
+        arrayCopy[i] = callback(arrayCopy[i]);
+      }
+    return arrayCopy;
+};
 // const allEvens = (numbers) => {
 //     return numbers.every(evenFinder);
 //   };
 
+
 module.exports = {
     mapResult,
-    // ofAge,
+    filter,
   };
