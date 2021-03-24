@@ -8,12 +8,19 @@ const mapResult = (numbers, callback) => {
 
 // const ageFinder = (array) => array <= 21;
 const filter = (array, callback) => {
-    let arrayCopy = [...array];
-    for (let i = 0; i < array.length; i++) {
-        arrayCopy[i] = callback(arrayCopy[i]);
-      }
+    let arrayCopy = [];
+    for (let ar of array) {
+        if (callback(ar)) arrayCopy = [...arrayCopy, ar];
+      } 
     return arrayCopy;
 };
+// const filter = (array, callback) => {
+//     let arrayCopy = [...array];
+//     for (let i = 0; i < array.length; i++) {
+//         arrayCopy[i] = callback(arrayCopy[i]);
+//       }
+//     return arrayCopy;
+// };
 // const allEvens = (numbers) => {
 //     return numbers.every(evenFinder);
 //   };

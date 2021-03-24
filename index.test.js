@@ -20,11 +20,11 @@ const {
 
         expect(filter(over21, cb)).toBeTruthy();
         });
-        it('returns `false` or a falsy value for all ages under 21.',   () => {
+        it('returns `true` or a truthy value for all ages under 21.',   () => {
             const under21 = [16, 24, 36, 45];
-            const cb = x => x >= 21;
+            const cb2 = x => x <= 21;
 
-            expect(filter(under21, cb)).toBeFalsy();
+            expect(filter(under21, cb2)).toBeTruthy();
             });
         });
     });
