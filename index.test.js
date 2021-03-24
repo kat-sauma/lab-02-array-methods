@@ -1,6 +1,7 @@
 const {
     mapResult,
     filter,
+    findIndex,
 } = require('./index');
 
 
@@ -25,6 +26,16 @@ const {
             const cb2 = x => x <= 21;
 
             expect(filter(under21, cb2)).toBeTruthy();
+            });
+        });
+
+        describe('find Index', () => {
+            it('returns the index of the first item whose callback returns `true` or a truthy value or -1 if nothing found.',    () => {
+
+                const areaCodes = [908, 732, 614, 714];
+                const isOhio = (item) => item === (614);
+
+                expect(findIndex(areaCodes, isOhio)).toEqual(2);
             });
         });
     });
