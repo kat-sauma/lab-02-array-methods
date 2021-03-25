@@ -2,6 +2,7 @@ const {
     mapResult,
     filter,
     findIndex,
+    reduce,
 } = require('./index');
 
 
@@ -38,5 +39,18 @@ const {
                 expect(findIndex(areaCodes, isOhio)).toEqual(2);
             });
         });
+
+        describe('reduce', () => {
+            it('returns the final value of an accumulator taking an array and a callback function.',    () => {
+
+                const array = [1, 2, 3, 4];
+                const cb = (accumulator, x) => accumulator + x;
+                let initialValue = 0;
+
+                expect(reduce(array, cb, initialValue)).toEqual(10);
+            });
+        });
+
+
     });
 

@@ -29,10 +29,19 @@ const findIndex = (array, callback) => {
 
 };
 
+const reduce = (array, callback, initialValue) => {
+    let accumulator = initialValue;
+    for (let arr of array) 
+    accumulator = callback(accumulator, arr); 
+    return accumulator;
+    
+};
+
 
 
 module.exports = {
     mapResult,
     filter,
     findIndex,
+    reduce
   };
