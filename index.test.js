@@ -55,10 +55,18 @@ const {
         describe('every', () => {
             it('returns an overall `true` value if all callback return `true` or a truthy value.', () => {
 
-                const array = [2, 4, 5, 6];
-                const cb = x => x % 2;
+                const array = [2, 4, 6];
+                const cb = x => (x % 2 === 0);
 
                 expect(every(array, cb)).toBeTruthy();
+            });
+            
+            it('returns an overall `false` value if all callback return `false` or a falsy value.', () => {
+
+                const array = [2, 4, 5, 6];
+                const cb = x => (x % 2 === 0);
+
+                expect(every(array, cb)).toBeFalsy();
             });
         });
 

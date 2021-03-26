@@ -30,16 +30,26 @@ const findIndex = (array, callback) => {
 };
 
 const reduce = (array, callback, initialValue) => {
-    let accumulator = initialValue;
-    for (let arr of array) 
-    accumulator = callback(accumulator, arr); 
+    let accumulator;
+    let i;
+    if(initialValue) {
+        let accumulator = initialValue;
+        i = 0;
+    } else {
+        accumulator = array[0];
+        i = 1;
+    }
+    for (i; i < array.length; i++) {
+
+        accumulator = callback(accumulator, array[i]); 
+    } 
     return accumulator;
     
 };
 
 const every = (array, callback) => {
     for (let i = 0; i < array.length; i++) {
-        if (!callback(array[i]) === 0) return false;
+        if (!callback(array[i])) return false;
     }
     return true;
 };
