@@ -37,11 +37,18 @@ const reduce = (array, callback, initialValue) => {
     
 };
 
+const every = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        if (!callback(array[i]) === 0) return false;
+    }
+    return true;
+};
 
 
 module.exports = {
     mapResult,
     filter,
     findIndex,
-    reduce
-  };
+    reduce,
+    every
+};

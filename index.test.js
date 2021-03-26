@@ -3,6 +3,7 @@ const {
     filter,
     findIndex,
     reduce,
+    every
 } = require('./index');
 
 
@@ -51,6 +52,15 @@ const {
             });
         });
 
+        describe('every', () => {
+            it('returns an overall `true` value if all callback return `true` or a truthy value.', () => {
+
+                const array = [2, 4, 5, 6];
+                const cb = x => x % 2;
+
+                expect(every(array, cb)).toBeTruthy();
+            });
+        });
 
     });
 
